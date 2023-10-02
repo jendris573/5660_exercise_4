@@ -192,21 +192,21 @@ alt="Hive cover example" />
 <pre class="r"><code>summary(bee_model)</code></pre>
 <pre><code>## 
 ## Call:
-## glm(formula = percent_change ~ treatment, family = binomial, 
+## glm(formula = Percent_change ~ Treatment, family = quasibinomial, 
 ##     data = bees)
 ## 
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)    5.273      1.003   5.260 1.44e-07 ***
-## treatment1    17.293   3341.801   0.005    0.996    
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    5.3891     0.7186   7.500 3.73e-13 ***
+## Treatment1    17.1770  2384.4715   0.007    0.994    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## (Dispersion parameter for binomial family taken to be 1)
+## (Dispersion parameter for quasibinomial family taken to be 0.5140187)
 ## 
-##     Null deviance: 14.000  on 403  degrees of freedom
-## Residual deviance: 12.551  on 402  degrees of freedom
-## AIC: 16.551
+##     Null deviance: 14.125  on 429  degrees of freedom
+## Residual deviance: 12.783  on 428  degrees of freedom
+## AIC: NA
 ## 
 ## Number of Fisher Scoring iterations: 21</code></pre>
 </div>
@@ -214,51 +214,14 @@ alt="Hive cover example" />
 <h2>Plots</h2>
 <p>Autoplot</p>
 <p><img src="exercise_4_files/figure-html/autoplot-1.png" width="672" /></p>
-<p>Binned residual plot
-<img src="exercise_4_files/figure-html/residuals%20plot-1.png" width="672" /></p>
-<pre class="r"><code>coef(bee_model)</code></pre>
-<pre><code>## (Intercept)  treatment1 
-##     5.27300    17.29307</code></pre>
-<pre class="r"><code>confint(bee_model)</code></pre>
+<p>Binned residual plot</p>
+<p><img src="exercise_4_files/figure-html/residuals%20plot-1.png" width="672" /></p>
+<pre><code>## (Intercept)  Treatment1 
+##    5.389072   17.176997</code></pre>
 <pre><code>## Waiting for profiling to be done...</code></pre>
-<pre><code>## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
-
-## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
-<pre><code>## Warning in regularize.values(x, y, ties, missing(ties), na.rm = na.rm):
-## collapsing to unique &#39;x&#39; values</code></pre>
-<pre><code>##                   2.5 % 97.5 %
-## (Intercept)    3.782849 8.1396
-## treatment1  -702.042585     NA</code></pre>
+<pre><code>##                   2.5 %   97.5 %
+## (Intercept)    4.244576 7.217564
+## Treatment1  -399.602431       NA</code></pre>
 </div>
 <div id="fun-fact-of-the-day" class="section level2">
 <h2>Fun Fact of the Day</h2>
@@ -270,6 +233,10 @@ Leclerc releases songs on Spotify titled after F1 tracks.</strong></div>
 </div>
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6aV6wReqMK8WswhL6KBY8U?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
 </iframe>
+<p>Data pulled from <a
+href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.80gb5mkss">Dryad</a>.</p>
+<p>Journal article can be found <a
+href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266219">here</a>.</p>
 </div>
 
 

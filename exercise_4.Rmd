@@ -31,20 +31,30 @@ library(arm)
 bees <- read_excel("data/bee_raw_data.xlsx")
 
 #force numeric to factor for two variables
-bees$treatment <- as.factor(bees$treatment)
-bees$percent_change <- as.factor(bees$percent_change)
+bees$Treatment <- as.factor(bees$Treatment)
+bees$Survival <- as.factor(bees$Survival)
+bees$Percent_change <- as.factor(bees$Percent_change)
 ```
-## Study background 
 
-During winter months, bee do not hibernate. Instead, members of the hive will consume food stores (honey) and use the energy to thermoregulate. This leads to winter being considered the highest risk season for beekeepers.  Hive coverings are a technique used to insulate a hive and reduce the need for honey consumption through the winter.  However, as climate change reduces the number of days with freezing temperatures in some locations, the effectiveness of hive coverings is unknown.
+## Study background
+
+During winter months, bee do not hibernate. Instead, members of the hive
+will consume food stores (honey) and use the energy to thermoregulate.
+This leads to winter being considered the highest risk season for
+beekeepers. Hive coverings are a technique used to insulate a hive and
+reduce the need for honey consumption through the winter. However, as
+climate change reduces the number of days with freezing temperatures in
+some locations, the effectiveness of hive coverings is unknown.
 
 ![Hive cover example](images/hive.jpeg){width="50%"}
 
 ## Summary stats
-```{r bee glm, include=FALSE}
-bee_model <- glm(treatment ~ percent_change, data= bees, family = binomial)
+
+```{r bee glm, include=FALSE, warnings=FALSE}
+bee_model <- glm(Percent_change ~ Treatment, data= bees, quasibinomial)
 ```
-```{r bee_model}
+
+```{r bee_model, warnings=FALSE}
 summary(bee_model)
 ```
 
@@ -52,18 +62,19 @@ summary(bee_model)
 
 Autoplot
 
-```{r autoplot, echo=FALSE}
+```{r autoplot, warnings=FALSE, echo=FALSE}
 autoplot(bee_model)
 ```
 
 Binned residual plot
+
 ```{r residuals plot, echo=FALSE, warnings=FALSE}
 x <- predict(bee_model)
 y <- resid(bee_model)
 binnedplot(x, y)
 ```
 
-```{r residuals, warnings=FALSE}
+```{r residuals, echo=FALSE, warnings=FALSE}
 coef(bee_model)
 
 confint(bee_model)
@@ -71,7 +82,7 @@ confint(bee_model)
 ```
 
 ```{r final plot, include=FALSE, echo=FALSE}
-ggplot(bees, aes(x= percent_change, y= treatment))+
+ggplot(bees, aes(x= Percent_change, y= Treatment))+
   geom_point()+
   geom_smooth(method = glm, method.args=list(family="binomial"(link="logit")))+
   ylab("Treatment")+
@@ -84,14 +95,17 @@ ggplot(bees, aes(x= percent_change, y= treatment))+
   ggtitle("Hive Weight by Treatment")
 ```
 
-
-
-
-
-
 ## Fun Fact of the Day
-![**The Scuderia Ferrari driver Charles Leclerc releases songs on Spotify titled after F1 tracks.**](images/Belgium.jpeg){width="50%"}
 
+![**The Scuderia Ferrari driver Charles Leclerc releases songs on
+Spotify titled after F1 tracks.**](images/Belgium.jpeg){width="50%"}
 
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6aV6wReqMK8WswhL6KBY8U?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6aV6wReqMK8WswhL6KBY8U?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</iframe>
+
+Data pulled from
+[Dryad](https://datadryad.org/stash/dataset/doi:10.5061/dryad.80gb5mkss).
+
+Journal article can be found
+[here](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266219).
