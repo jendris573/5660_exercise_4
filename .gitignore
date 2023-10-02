@@ -47,4 +47,12 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# folders
 examples/
+images/
+exercise_4_files/
+data/
+
+# sandbox
+exercise_4.R

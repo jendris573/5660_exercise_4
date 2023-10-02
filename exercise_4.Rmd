@@ -1,0 +1,97 @@
+---
+title: "Exercise 4"
+author: "Joe Endris"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    self_contained: FALSE
+    df_print: paged
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(ggfortify)
+library(tidyverse)
+library(gtsummary)
+library(gt)
+library(knitr)
+library(flextable)
+library(AICcmodavg)
+library(arm)
+```
+
+```{r data prep, include = FALSE}
+#Load dataset
+bees <- read_excel("data/bee_raw_data.xlsx")
+
+#force numeric to factor for two variables
+bees$treatment <- as.factor(bees$treatment)
+bees$percent_change <- as.factor(bees$percent_change)
+```
+## Study background 
+
+During winter months, bee do not hibernate. Instead, members of the hive will consume food stores (honey) and use the energy to thermoregulate. This leads to winter being considered the highest risk season for beekeepers.  Hive coverings are a technique used to insulate a hive and reduce the need for honey consumption through the winter.  However, as climate change reduces the number of days with freezing temperatures in some locations, the effectiveness of hive coverings is unknown.
+
+![Hive cover example](images/hive.jpeg){width="50%"}
+
+## Summary stats
+```{r bee glm, include=FALSE}
+bee_model <- glm(treatment ~ percent_change, data= bees, family = binomial)
+```
+```{r bee_model}
+summary(bee_model)
+```
+
+## Plots
+
+Autoplot
+
+```{r autoplot, echo=FALSE}
+autoplot(bee_model)
+```
+
+Binned residual plot
+```{r residuals plot, echo=FALSE, warnings=FALSE}
+x <- predict(bee_model)
+y <- resid(bee_model)
+binnedplot(x, y)
+```
+
+```{r residuals, warnings=FALSE}
+coef(bee_model)
+
+confint(bee_model)
+
+```
+
+```{r final plot, include=FALSE, echo=FALSE}
+ggplot(bees, aes(x= percent_change, y= treatment))+
+  geom_point()+
+  geom_smooth(method = glm, method.args=list(family="binomial"(link="logit")))+
+  ylab("Treatment")+
+  xlab("Percent Change in Hive Weight")+
+  theme_bw()+
+  theme(panel.border = element_blank(),  
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank())+
+  ggtitle("Hive Weight by Treatment")
+```
+
+
+
+
+
+
+## Fun Fact of the Day
+![**The Scuderia Ferrari driver Charles Leclerc releases songs on Spotify titled after F1 tracks.**](images/Belgium.jpeg){width="50%"}
+
+
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6aV6wReqMK8WswhL6KBY8U?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
