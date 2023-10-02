@@ -46,7 +46,7 @@ reduce the need for honey consumption through the winter. However, as
 climate change reduces the number of days with freezing temperatures in
 some locations, the effectiveness of hive coverings is unknown.
 
-![Hive cover example](images/hive.jpeg){width="50%"}
+![Hive cover example](images/hive.jpg){width="50%"}
 
 ## Summary stats
 
@@ -98,7 +98,7 @@ ggplot(bees, aes(x= Percent_change, y= Treatment))+
 ## Fun Fact of the Day
 
 ![**The Scuderia Ferrari driver Charles Leclerc releases songs on
-Spotify titled after F1 tracks.**](images/Belgium.jpeg){width="50%"}
+Spotify titled after F1 tracks.**](images/Belgium.jpg){width="50%"}
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6aV6wReqMK8WswhL6KBY8U?utm_source=generator" width="50%" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
 
