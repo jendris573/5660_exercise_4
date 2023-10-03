@@ -1,14 +1,10 @@
 ---
 title: "Exercise 4"
-author: "Joe Endris"
-date: "`r Sys.Date()`"
+subtitle: Joe Endris
 output:
   html_document:
-    self_contained: FALSE
+    toc: yes
     df_print: paged
-editor_options: 
-  markdown: 
-    wrap: 72
 ---
 ```{r}
 
