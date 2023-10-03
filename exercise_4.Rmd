@@ -99,9 +99,9 @@ ggplot(bees, aes(x= Percent_change, y= Treatment))+
 ![**The Scuderia Ferrari driver Charles Leclerc releases songs on
 Spotify titled after F1 tracks.**](images/Belgium.jpg){width="50%"}
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6aV6wReqMK8WswhL6KBY8U?utm_source=generator" width="50%" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2pkogCDf86ygBRuvpimLfk?utm_source=generator" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-</iframe>
+Also uploaded to [YouTube](https://youtu.be/aJma1XI45ig?si=PRgjklLK6HhstAaT)
 
 Data pulled from
 [Dryad](https://datadryad.org/stash/dataset/doi:10.5061/dryad.80gb5mkss).
